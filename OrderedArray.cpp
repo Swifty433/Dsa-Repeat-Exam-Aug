@@ -1,4 +1,5 @@
 #include "OrderedArray.h"
+#include <iostream>
 
 template <typename T>
 OrderedArray<T>::OrderedArray(int grow_size) : data(nullptr), size(0), capacity(0), growSize(grow_size)
@@ -17,15 +18,45 @@ OrderedArray<T>::~OrderedArray() {
 
 // Insert a new element into the ordered array
 template <typename T>
-void OrderedArray<T>::grow() {}
+void OrderedArray<T>::grow() {
+    capacity += growSize;
+    T* newData = new T[capacity];
+
+    for (int i = 0; i < size; ++i)
+    {
+        newData[i] = data[i];
+    }
+
+    delete[] data;
+    data = newData;
+}
 
 // inserts an element in the correct order
 template <typename T>
-void OrderedArray<T>::insertInOrder(const T& newElement) {}
+void OrderedArray<T>::insertInOrder(const T& newElement) {
+    int insertIndex = 0;
+
+    while (insertIndex < size && data[insertIndex] < newElement) {
+        ++insertIndex;
+    }
+
+    for (int i = size; i > insertIndex; --i)
+    {
+        data[i] = data[i - 1]; // moves the element to the right
+    }
+    data[insertIndex] = newElement;
+    ++size;
+}
 
 // inserts an element into the array
 template <typename T>
-void OrderedArray<T>::push(const T& newElement) {}
+void OrderedArray<T>::push(const T& newElement) {
+    if (size >= capacity) {
+        grow();
+    }
+    insertInOrder(newElement);
+    ++size;
+}
 
 // get the size of the array
 template <typename T>
