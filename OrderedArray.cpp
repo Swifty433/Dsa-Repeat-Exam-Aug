@@ -1,6 +1,4 @@
 #include "OrderedArray.h"
-#include <iostream>
-#include <stdexcept>
 
 //COnstructor 
 template <typename T>
@@ -116,20 +114,20 @@ void OrderedArray<T>::clear() {
     size = 0;
 }
 
-//this prints all the values in the array in correct order
-template <typename T>
-void OrderedArray<T>::print() const {
-    for (int i = 0; i < size; ++i) {
-        std::cout << data[i] << " ";
-    }
-    std::cout << std::endl;
-}
+////this prints all the values in the array in correct order
+//template <typename T>
+//void OrderedArray<T>::print() const {
+//    for (int i = 0; i < size; ++i) {
+//        std::cout << data[i] << " ";
+//    }
+//    std::cout << std::endl;
+//}
 
 //this is refrenced in my readme file
 // Explicit instantiations (inspired by Modernes C++ blog example):
 // template class MyClass<int>; etc.
 // Explicit template instantiations
-template class OrderedArray<int>;
-template class OrderedArray<float>;
-template class OrderedArray<double>;
-template class OrderedArray<std::string>;
+//template class OrderedArray<int>;
+//template class OrderedArray<float>;
+//template class OrderedArray<double>;
+//template class OrderedArray<std::string>;

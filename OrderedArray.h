@@ -1,4 +1,4 @@
-#pragma once
+#include "headers.h"
 
 //Templated Class
 //Stores elements in ascending order according to their natural ordering
@@ -26,6 +26,5 @@ public:
     bool remove(int index); //Takes in index of an element and removes it from the array
     int search(const T& target) const; //searches for element at specific index
     void clear(); //Empties the array
-    void print() const; //Allows printing to console
-
+    //void print() const; //Allows printing to console
 };

@@ -23,6 +23,7 @@
     <ClCompile Include="OrderedArray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers.h" />
     <ClInclude Include="OrderedArray.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
