@@ -76,5 +76,61 @@ namespace OrderedArrayTest
 			arr.clear();
 			Assert::AreEqual(0, arr.length());
 		}
+
+		TEST_METHOD(TestGetElement)
+		{
+			OrderedArray<int> arr;
+			arr.push(5);
+			arr.push(3);
+			arr.push(8);
+			
+			Assert::AreEqual(5, arr.getElement(1));
+		}
+
+		TEST_METHOD(TestGetElementInvalidIndex)
+		{
+			OrderedArray<int> arr;
+			arr.push(5);
+			arr.push(3);
+			arr.push(8);
+			
+			Assert::AreEqual(0, arr.getElement(5));
+		}
+
+		TEST_METHOD(TestLength)
+		{
+			OrderedArray<int> arr;
+			arr.push(5);
+			arr.push(3);
+			arr.push(8);
+			
+			Assert::AreEqual(3, arr.length());
+		}
+
+		TEST_METHOD(TestPushResizesArray)
+		{
+			OrderedArray<int> arr(2);
+			arr.push(1);
+			arr.push(2);
+			Assert::AreEqual(2, arr.length());
+
+			arr.push(3); 
+			Assert::AreEqual(3, arr.length());
+			Assert::AreEqual(1, arr.getElement(0));
+			Assert::AreEqual(2, arr.getElement(1));
+			Assert::AreEqual(3, arr.getElement(2));
+		}
+
+		TEST_METHOD(TestPushWithDefaultGrowSize)
+		{
+			OrderedArray<int> arr;
+			arr.push(10);
+			arr.push(20);
+			arr.push(30);
+			Assert::AreEqual(3, arr.length());
+			Assert::AreEqual(10, arr.getElement(0));
+			Assert::AreEqual(20, arr.getElement(1));
+			Assert::AreEqual(30, arr.getElement(2));
+		}
 	};
 }
