@@ -170,9 +170,10 @@ namespace OrderedArrayTest
 			arr.push(5);
 			arr.push(3);
 			arr.push(5); // Attempt to add duplicate
-			Assert::AreEqual(3, arr.length()); // Should only contain unique elements
+			Assert::AreEqual(3, arr.length()); // OrderedArray allows duplicates
 			Assert::AreEqual(3, arr.getElement(0));
 			Assert::AreEqual(5, arr.getElement(1));
+			Assert::AreEqual(5, arr.getElement(2));
 		}
 
 		TEST_METHOD(TestPushString)

@@ -101,7 +101,7 @@ MySet<T> MySet<T>::operator&(const MySet<T>& other) const
 template <typename T>
 MySet<T> MySet<T>::operator|(const MySet<T>& other) const 
 {
-	MySet<t> result;
+	MySet<T> result;
 	for(int i = 0; i < data.length(); i++)
 	{
 		result.insert(data.getElement(i));
