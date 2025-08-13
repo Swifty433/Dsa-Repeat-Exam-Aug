@@ -1,3 +1,6 @@
+//Part 1 - OrderedArray Implementation
+//I need to use a dynamic array that will automatically resize when capacity is reached and implement the functions in the doc
+
 #include "OrderedArray.h"
 
 //COnstructor 
