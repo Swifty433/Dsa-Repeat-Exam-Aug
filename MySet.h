@@ -85,12 +85,31 @@ void MySet<T>::clear()
 template <typename T>
 MySet<T> MySet<T>::operator&(const MySet<T>& other) const 
 {
-
+	MySet<T> result;
+	for (int i = 0; i < data.length(); i++)
+	{
+		T element = data.getElement(i);
+		if (other.search(element) >= 0)
+		{
+			result.insert(element);
+		}
+	}
+	return result;
 }
 
 //Set | Set : - returns a new set containing all unique elements from each input set
 template <typename T>
 MySet<T> MySet<T>::operator|(const MySet<T>& other) const 
 {
+	MySet<t> result;
+	for(int i = 0; i < data.length(); i++)
+	{
+		result.insert(data.getElement(i));
+	}
 
+	for(int i = 0; i < other.length(); i++)
+	{
+		result.insert(other.getElement(i));
+	}
+	return result;
 }
