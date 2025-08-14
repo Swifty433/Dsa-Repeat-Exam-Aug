@@ -21,6 +21,10 @@ public:
     OrderedArray(); //Default constructor, Defaults to sensible value
     ~OrderedArray(); //Destructor to free all memory, including what which is dynamically allocated by it
 
+    // Copy constructor and assignment operator (Rule of Three)
+    OrderedArray(const OrderedArray& other);
+    OrderedArray& operator=(const OrderedArray& other);
+
     void push(const T& newElement); //Puts element into the array in order
     int length() const; //Returns the number of elements in the array
     T getElement(int index) const; //Returns a copy of element at index given

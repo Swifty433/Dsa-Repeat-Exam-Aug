@@ -22,6 +22,46 @@ OrderedArray<T>::~OrderedArray() {
     delete[] data;
 }
 
+// Copy constructor
+template <typename T>
+OrderedArray<T>::OrderedArray(const OrderedArray& other)
+    : size(other.size), capacity(other.capacity), growSize(other.growSize)
+{
+    if (capacity > 0) {
+        data = new T[capacity];
+        for (int i = 0; i < size; ++i) {
+            data[i] = other.data[i];
+        }
+    }
+    else {
+        data = nullptr;
+    }
+}
+
+// Assignment operator
+template <typename T>
+OrderedArray<T>& OrderedArray<T>::operator=(const OrderedArray& other)
+{
+    if (this != &other) {
+        delete[] data;
+
+        size = other.size;
+        capacity = other.capacity;
+        growSize = other.growSize;
+
+        if (capacity > 0) {
+            data = new T[capacity];
+            for (int i = 0; i < size; ++i) {
+                data[i] = other.data[i];
+            }
+        }
+        else {
+            data = nullptr;
+        }
+    }
+    return *this;
+}
+
 // Insert a new element into the ordered array
 template <typename T>
 void OrderedArray<T>::grow() {
@@ -131,7 +171,8 @@ void OrderedArray<T>::clear() {
 // Explicit instantiations (inspired by Modernes C++ blog example):
 // template class MyClass<int>; etc.
 // Explicit template instantiations
-//template class OrderedArray<int>;
-//template class OrderedArray<float>;
-//template class OrderedArray<double>;
-//template class OrderedArray<std::string>;
+template class OrderedArray<int>;
+template class OrderedArray<float>;
+template class OrderedArray<double>;
+template class OrderedArray<std::string>;
+template class OrderedArray<char>;
