@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers.h" />
+    <ClInclude Include="Lead.h" />
     <ClInclude Include="MySet.h" />
     <ClInclude Include="OrderedArray.h" />
   </ItemGroup>

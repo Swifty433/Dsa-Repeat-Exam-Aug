@@ -94,9 +94,6 @@ void OrderedArray<T>::insertInOrder(const T& newElement) {
         data[i] = data[i - 1]; // moves the element to the right
     }
     data[insertIndex] = newElement; //drop new value into place
-    
-    //comment out when no longer needed
-    std::cout << "new element added \n";
 
     ++size; //size increases as new element is added
 }

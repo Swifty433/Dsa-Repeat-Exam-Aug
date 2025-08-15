@@ -32,5 +32,8 @@
     <ClInclude Include="MySet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Lead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
