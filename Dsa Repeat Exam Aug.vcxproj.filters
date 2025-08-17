@@ -21,6 +21,12 @@
     <ClCompile Include="OrderedArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Lead.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CSV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OrderedArray.h">
@@ -33,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Lead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CSV.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

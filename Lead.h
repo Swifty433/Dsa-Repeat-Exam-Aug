@@ -5,28 +5,28 @@ class Lead {
 private:
 	std::string name;
 	std::string email;
-	int phoneNumber;
+	std::string phoneNumber;
 	std::string companyName;
 	std::string repName;
 
 public:
 	Lead();
-	Lead(const std::string& name, const std::string& email, int phoneNumber, const std::string& companyName, const std::string& repName);
+	Lead(const std::string& name, const std::string& email, const std::string& phoneNumber, const std::string& companyName, const std::string& repName);
 	~Lead();
 
 	//Getters
-	string getName() const;
-	string getEmail() const;
-	int getPhoneNumber() const;
-	string getCompanyName() const;
-	string getRepName() const;
+	std::string getName() const;
+	std::string getEmail() const;
+	std::string getPhoneNumber() const;
+	std::string getCompanyName() const;
+	std::string getRepName() const;
 
 	//Setters
-	void setName(const string& name);
-	void setEmail(const string& email);
-	void setPhoneNumber(int phoneNumber);
-	void setCompanyName(const string& companyName);
-	void setRepName(const string& repName);
+	void setName(const std::string& name);
+	void setEmail(const std::string& email);
+	void setPhoneNumber(const std::string& phoneNumber);
+	void setCompanyName(const std::string& companyName);
+	void setRepName(const std::string& repName);
 	
 	//Operator overloads
 	bool operator==(const Lead& other) const;

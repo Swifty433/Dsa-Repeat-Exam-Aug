@@ -19,10 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CSV.cpp" />
+    <ClCompile Include="Lead.cpp" />
     <ClCompile Include="MainApp.cpp" />
     <ClCompile Include="OrderedArray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CSV.h" />
     <ClInclude Include="headers.h" />
     <ClInclude Include="Lead.h" />
     <ClInclude Include="MySet.h" />
