@@ -25,4 +25,39 @@ MySet<Lead> CSV::readCSV(const std::string& filename, const std::string& repName
 		std::cout << ("Couldnt open the file: " + filename);
 		return leads;
 	}
+
+	string line;
+	getline(file, line);
+
+	while (getline(file, line))
+	{
+		if (!line.empty())
+		{
+			Lead lead = parseCSV(line, repName);
+			leads.insert(lead);
+		}
+	}
+	file.close();
+	std::cout << "CSV file read successfully." << std::endl;
+	return leads;
+}
+
+void CSV::writeCSV(const std::string& filename, const MySet<Lead>& leads)
+{
+	std::ofstream file(filename);
+	if (!file.is_open())
+	{
+		std::cerr << "COuldn't open file." << filename << std::endl;
+		return;
+	}
+
+	file << "Name,Email,Phone,Company,Rep" << std::endl;
+
+	for (int i = 0; i < leads.length(); i++)
+	{
+		file << leads.getElement(i).toCSV() << std::endl;
+	}
+
+	file.close();
+	std::cout << "CSV file written to: " << filename << std::endl;
 }
