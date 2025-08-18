@@ -33,3 +33,154 @@ public:
     void clear(); //Empties the array
     //void print() const; //Allows printing to console
 };
+
+//COnstructor 
+template <typename T>
+OrderedArray<T>::OrderedArray(int grow_size) : data(nullptr), size(0), capacity(0), growSize(grow_size)
+{
+}
+
+//Default constructor - starts with growsize 10
+template <typename T>
+OrderedArray<T>::OrderedArray() : data(nullptr), size(0), capacity(0), growSize(10)
+{
+}
+
+//destructor - frees up dynamic memory being used
+template <typename T>
+OrderedArray<T>::~OrderedArray() {
+    delete[] data;
+}
+
+// Copy constructor
+template <typename T>
+OrderedArray<T>::OrderedArray(const OrderedArray& other)
+    : size(other.size), capacity(other.capacity), growSize(other.growSize)
+{
+    if (capacity > 0) {
+        data = new T[capacity];
+        for (int i = 0; i < size; ++i) {
+            data[i] = other.data[i];
+        }
+    }
+    else {
+        data = nullptr;
+    }
+}
+
+// Assignment operator
+template <typename T>
+OrderedArray<T>& OrderedArray<T>::operator=(const OrderedArray& other)
+{
+    if (this != &other) {
+        delete[] data;
+
+        size = other.size;
+        capacity = other.capacity;
+        growSize = other.growSize;
+
+        if (capacity > 0) {
+            data = new T[capacity];
+            for (int i = 0; i < size; ++i) {
+                data[i] = other.data[i];
+            }
+        }
+        else {
+            data = nullptr;
+        }
+    }
+    return *this;
+}
+
+// Insert a new element into the ordered array
+template <typename T>
+void OrderedArray<T>::grow() {
+    capacity += growSize; //increases the total space
+    T* newData = new T[capacity]; //allocate a bigger array
+
+    //copys over all the old data into the new array
+    for (int i = 0; i < size; ++i)
+    {
+        newData[i] = data[i];
+    }
+
+    delete[] data; //removes the old array
+    data = newData; //points to the new array
+}
+
+// inserts an element in the correct order
+template <typename T>
+void OrderedArray<T>::insertInOrder(const T& newElement) {
+    int insertIndex = 0;
+
+    //searches for the first spot where to place element
+    while (insertIndex < size && data[insertIndex] < newElement) {
+        ++insertIndex;
+    }
+
+    //move everything one step to the right to create gap
+    for (int i = size; i > insertIndex; --i)
+    {
+        data[i] = data[i - 1]; // moves the element to the right
+    }
+    data[insertIndex] = newElement; //drop new value into place
+
+    ++size; //size increases as new element is added
+}
+
+// inserts an element into the array
+template <typename T>
+void OrderedArray<T>::push(const T& newElement) {
+    //if there is no room we shall make MORE!!!!!
+    if (size >= capacity) {
+        grow();
+    }
+    insertInOrder(newElement);
+}
+
+// get the size of the array - not capacity
+template <typename T>
+int OrderedArray<T>::length() const {
+    return size;
+}
+
+// finds the element at the index
+template <typename T>
+T OrderedArray<T>::getElement(int index) const {
+    if (index < 0 || index >= size) {
+        return T();
+    }
+    return data[index];
+}
+
+// remove an element based on index
+template <typename T>
+bool OrderedArray<T>::remove(int index) {
+    if (index < 0 || index >= size) {
+        std::cout << "No Element at specific index - ";
+        return false; //returns false if no element exisits
+    }
+    //moves everything to the left to the left
+    for (int i = index; i < size - 1; ++i) {
+        data[i] = data[i + 1];
+    }
+    --size; //element size is one less now
+    return true;
+}
+
+// search for an element in the array
+template <typename T>
+int OrderedArray<T>::search(const T& target) const {
+    for (int i = 0; i < size; ++i) {
+        if (data[i] == target) {
+            return i;
+        }
+    }
+    return -1; // not found
+}
+
+// Clears the array of elements
+template <typename T>
+void OrderedArray<T>::clear() {
+    size = 0;
+}
