@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "..\OrderedArray.h"
-#include "../OrderedArray.cpp"
+//removed due to no longer being needed
+//#include "../OrderedArray.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

@@ -18,9 +18,6 @@
     <ClCompile Include="MainApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OrderedArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Lead.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

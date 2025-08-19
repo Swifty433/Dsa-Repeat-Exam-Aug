@@ -22,7 +22,6 @@
     <ClCompile Include="CSV.cpp" />
     <ClCompile Include="Lead.cpp" />
     <ClCompile Include="MainApp.cpp" />
-    <ClCompile Include="OrderedArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CSV.h" />
