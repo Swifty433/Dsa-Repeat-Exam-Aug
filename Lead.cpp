@@ -57,11 +57,13 @@ bool Lead::operator>= (const Lead& other) const
 }
 
 //utiliy mMethods
+// Convert to string format
 std::string Lead::toString() const
 {
 	return "Name: " + name + ", Email: " + email + ", Phone: " + phoneNumber + ", Company: " + companyName + ", Rep: " + repName;
 }
 
+// Convert to CSV format
 std::string Lead::toCSV() const
 {
 	return name + "," + email + "," + phoneNumber + "," + companyName + "," + repName;

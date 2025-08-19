@@ -97,7 +97,7 @@ MySet<T> MySet<T>::operator&(const MySet<T>& other) const
 	return result;
 }
 
-//Set | Set : - returns a new set containing all unique elements from each input set
+//Set | Set : - returns a new set containing all unique elements from each input set (Union)
 template <typename T>
 MySet<T> MySet<T>::operator|(const MySet<T>& other) const 
 {

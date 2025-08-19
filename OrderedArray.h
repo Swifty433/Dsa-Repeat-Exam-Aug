@@ -53,6 +53,7 @@ OrderedArray<T>::~OrderedArray() {
 }
 
 // Copy constructor
+// Creates a new OrderedArray as a copy of another
 template <typename T>
 OrderedArray<T>::OrderedArray(const OrderedArray& other)
     : size(other.size), capacity(other.capacity), growSize(other.growSize)
@@ -62,13 +63,14 @@ OrderedArray<T>::OrderedArray(const OrderedArray& other)
         for (int i = 0; i < size; ++i) {
             data[i] = other.data[i];
         }
-    }
+	}
     else {
         data = nullptr;
     }
 }
 
 // Assignment operator
+// Assigns the contents of one OrderedArray to another
 template <typename T>
 OrderedArray<T>& OrderedArray<T>::operator=(const OrderedArray& other)
 {

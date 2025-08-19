@@ -177,7 +177,7 @@ namespace MySetTest
 			Assert::IsFalse(s.remove(0));
 		}
 
-		//Cant get them to work
+		//these do work now, removed old comments
 		TEST_METHOD(TestUnionBasic)
 		{
 			MySet<int> a;

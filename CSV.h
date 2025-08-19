@@ -7,8 +7,10 @@
 class CSV
 {
 public:
+	// Reads a CSV file and returns a set of Leads
 	MySet<Lead> readCSV(const std::string& filename, const std::string& repName);
 
+	// Writes a set of Leads to a CSV file
 	void writeCSV(const std::string& filename, const MySet<Lead>& leads);
 
 	//helper
